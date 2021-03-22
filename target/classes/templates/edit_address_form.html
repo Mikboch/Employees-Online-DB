@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3,org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit address</title>
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">Edit address parameters</div>
+
+		<form action="#" th:action="@{/updateAddress}" th:object="${address}"
+			method="post">
+			<table cellpadding="0">
+				<tr>
+					<td>Address ID:</td>
+					<td><input type="text" th:field="*{id_adresu}"
+						readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" th:field="*{miasto}"></td>
+				</tr>
+				<tr>
+					<td>Street:</td>
+					<td><input type="text" th:field="*{ulica}"></td>
+				</tr>
+				<tr>
+					<td>Building no.:</td>
+					<td><input type="text" th:field="*{numer_budynku}"></td>
+				</tr>
+				<tr>
+					<td>Flat no.:</td>
+					<td><input type="text" th:field="*{nr_lokalu}"></td>
+				</tr>
+				<tr>
+					<td>Post id:</td>
+					<td><input type="text" th:field="*{id_poczty}"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+
+		</form>
+
+	</div>
+	<div class="management">
+		<div class="sheader">Go back to previous page</div>
+		<div id="middle">
+			<a href="/addresses" class="button">Back</a>
+		</div>
+	</div>
+</body>
+</html>

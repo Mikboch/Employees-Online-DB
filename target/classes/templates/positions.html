@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+
+<title>Positions</title>
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">List of positions</div>
+
+		<!-- Table parameters -->
+
+		<table cellspacing="0">
+			<tr>
+				<th>id</th>
+				<th>Post</th>
+				<th>Post description</th>
+				<th>Action</th>
+			</tr>
+			<tr th:each="position : ${listOfPositions}">
+				<td th:text="${position.id_stanowiska}">id</td>
+				<td th:text="${position.nazwa_stanowiska}">Post</td>
+				<td th:text="${position.opis_stanowiska}">Post description</td>
+				<td><a
+					th:href="@{'/editPosition/' + ${position.id_stanowiska}}"
+					class="edButton">Edit</a> &nbsp; <a
+					th:href="@{'/deletePosition/' + ${position.id_stanowiska}}"
+					class="edButton">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="management">
+		<div class="sheader">Management</div>
+		<div id="middle">
+			<a href="/newPosition" class="button">Enter a new position in a company.</a> <a href="/logout"
+				class="button">Logout</a>
+		</div>
+		<div class="sheader">Move to another table</div>
+		<div id="middle">
+			<a href="/" class="button">Employees</a>
+			<a href="/addresses" class="button">Addresses</a> 
+			<a href="/factories" class="button">Factories</a>
+		</div>
+	</div>
+
+
+</body>
+</html>

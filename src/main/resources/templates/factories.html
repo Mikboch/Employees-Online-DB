@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+<title>Factory</title>
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">List of factories</div>
+
+		<!-- Table parameters -->
+
+		<table cellspacing="0">
+			<tr>
+					<th>id</th>
+					<th>Specialization</th>
+					<th>Surface</th>
+					<th>Assurance no.</th>
+					<th>Manufacturer id</th>
+					<th>Address id</th>
+					<th>Action </th>
+			</tr>
+			<tr th:each="factory : ${listOfFactories}">
+				<td th:text="${factory.id_fabryki}">id</td>
+				<td th:text="${factory.specjalizacja}">Specialization</td>
+				<td th:text="${factory.powierzchnia}">Surface</td>
+				<td th:text="${factory.nr_ubezpieczenia}">Assurance no.</td>
+				<td th:text="${factory.id_producenta}">Manufacturer id</td>
+				<td th:text="${factory.id_adresu}">Address id</td>
+				<td><a th:href="@{'/editFactory/' + ${factory.id_fabryki}}"
+						class="edButton">Edit</a> &nbsp; <a
+						th:href="@{'/deleteFactory/' + ${factory.id_fabryki}}"
+						class="edButton">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="management">
+		<div class="sheader">Management</div>
+		<div id="middle">
+			<a href="/newFactory" class="button">Enter a new factory's details.</a> <a href="/logout"
+				class="button">Logout</a>
+		</div>
+		<div class="sheader">Move to another table</div>
+		<div id="middle">
+			<a href="/" class="button">Employees</a>
+			<a href="/addresses" class="button">Addresses</a>
+			<a href="/positions" class="button">Positions</a>
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3,org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit position</title>
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">Edit a position in a company</div>
+
+		<form action="#" th:action="@{/updatePosition}" th:object="${position}"
+			method="post">
+		<table cellpadding="0">
+			<tr>
+				<td>Post ID:</td>
+				<td><input type="text" th:field="*{id_stanowiska}"
+					readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>Post:</td>
+				<td><input type="text" th:field="*{nazwa_stanowiska}"></td>
+			</tr>
+			<tr>
+				<td>Post description:</td>
+				<td><input type="text" th:field="*{opis_stanowiska}"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit">Save</button></td>
+			</tr>
+		</table>
+		
+		</form>
+		
+	</div>
+	
+	<div class="management">
+		<div class="sheader">Go back to previous page</div>
+		<div id="middle">
+			<a href="/positions" class="button">Back</a>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- <link href="css/style.css" rel="stylesheet" type ="text/css"> -->
+<style type="text/css">
+body {
+	background-color: #c3dffa;
+	font-family: 'Arial', sans-serif;
+}
+
+.Przycisk {
+	height: 50px;
+	width: 250px;
+}
+
+.edButton {
+	color: #0734F5;
+	text-decoration: underline;
+}
+
+a.button1 {
+	display: inline-block;
+	padding: 0.35em 1.2em;
+	border: 0.1em solid #000000;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.12em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: #000000;
+	text-align: center;
+	transition: all 0.2s;
+	background-color: #e6e7e8;
+}
+
+a.button1:hover {
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+@media all and (max-width:30em) {
+	a.button1 {
+		display: block;
+		margin: 0.4em auto;
+	}
+}
+
+#custom {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#custom td, #custom th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#custom td {
+	background-color: #e6e7e8;
+	opacity: 0.8;
+}
+
+#custom tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#custom tr:hover {
+	background-color: #ddd;
+}
+
+#custom th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4D57FA;
+	color: white;
+}
+</style>
+
+<title>Factory</title>
+</head>
+<body>
+
+	<div align="center">
+		<h1>List of factories</h1>
+
+		<a href="/newFactory" class="button1">Enter a new factory's details.</a> <a
+			href="/logout" class="button1">Logout</a> <br /> <br />
+
+
+		<!-- Table parameters -->
+		<table border="1" cellpadding="10" id="custom">
+
+			<!-- Table header -->
+
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Specialization</th>
+					<th>Surface</th>
+					<th>Assurance no.</th>
+					<th>Manufacturer id</th>
+					<th>Address id</th>
+					<th>Action </th>
+				</tr>
+			</thead>
+
+			<!--	private int id_fabryki;
+				private String specjalizacja;
+				private float powierzchnia;
+				private String nr_ubezpieczenia;
+				private int id_producenta;
+				private int id_adresu;-->
+
+			<!-- Table body -->
+	 	<tbody>
+				<tr th:each="factory : ${listOfFactories}">
+
+					<td th:text="${factory.id_fabryki}">id</td>
+					<td th:text="${factory.specjalizacja}">Specialization</td>
+					<td th:text="${factory.powierzchnia}">Surface</td>
+					<td th:text="${factory.nr_ubezpieczenia}">Assurance no.</td>
+					<td th:text="${factory.id_producenta}">Manufacturer id</td>
+					<td th:text="${factory.id_adresu}">Address id</td>
+				
+
+					<td><a th:href="@{'/editFactory/' + ${factory.id_fabryki}}"
+						class="edButton">Edit</a> &nbsp; <a
+						th:href="@{'/deleteFactory/' + ${factory.id_fabryki}}"
+						class="edButton">Delete</a></td>
+
+				</tr>
+
+			</tbody> 	
+		</table>
+
+		<br /> <br /> <br />
+		<h3>Move to the main page</h3>
+		<a href="/" class="button1">Employees</a> 
+
+
+
+	</div>
+
+
+</body>
+</html>

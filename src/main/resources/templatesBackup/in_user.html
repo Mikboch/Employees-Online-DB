@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>User's DB</title>
+<style>
+body {
+	background-color:#c3dffa;
+	font-family: 'Roboto',sans-serif;
+}
+a.button1{
+	display:inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #000000;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:'Roboto',sans-serif;
+	font-weight:300;
+	color:#000000;
+	text-align:center;
+	transition: all 0.2s;
+	background-color:#e6e7e8;
+}
+a.button1:hover{
+	color:#FFFFFF;
+	background-color:#000000;
+}
+@media all and (max-width:30em){
+a.button1{
+	display:block;
+	margin:0.4em auto;
+}
+}
+input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+	display:inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #000000;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:'Roboto',sans-serif;
+	font-weight:300;
+	color:#000000;
+	text-align:center;
+	transition: all 0.2s;
+	background-color:#e6e7e8;
+}
+
+input[type=submit]:hover {
+	color:#FFFFFF;
+	background-color:#000000;
+}
+
+#container1{
+	width: 300px;
+	box-sizing: border-box;
+ 	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+	text-align:center;
+	background-color: #B1FCCF;
+	border: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 5px 5px 7px grey;
+	padding: 10px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="container1">
+		<form th:action="@{/user}"  method="get">
+    		<label for="id_uzytkownika">Enter user personal ID</label>
+    		<input type="text" name="id_uzytkownika" th:value="${id_uzytkownika}" placeholder="Your ID...">
+    		<input type="submit" value="Submit">
+		</form>
+		</br>
+	<a href="/logout" class="button1" >Logout</a>
+</div>
+
+</body>
+</html>

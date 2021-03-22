@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3,org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit employee informations</title>
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">Edit employee information</div>
+
+		<form action="#" th:action="@{/update}" th:object="${employee}"
+			method="post">
+		<table cellpadding="0">
+			<tr>
+				<td>Worker's ID:</td>
+				<td><input type="text" th:field="*{id_pracownika}"
+					readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>Worker's name:</td>
+				<td><input type="text" th:field="*{imie}"></td>
+				
+			</tr>
+			<tr>
+				<td>Worker's surname:</td>
+				<td><input type="text" th:field="*{nazwisko}"></td>
+			</tr>
+			<tr>
+				<td>Worker's date of birth:</td>
+				<td><input type="text" th:field="*{data_urodzenia}"></td>
+			</tr>
+			<tr>
+				<td>Worker's date of hire:</td>
+				<td><input type="text" th:field="*{data_zatrudnienia}"></td>
+			</tr>
+			<tr>
+				<td>Worker's PESEL:</td>
+				<td><input type="text" th:field="*{PESEL}"></td>
+			</tr>
+			<tr>
+				<td>Worker's gender:</td>
+				<td><input type="text" th:field="*{plec}"></td>
+			</tr>
+			<tr>
+				<td>Worker's acc no.:</td>
+				<td><input type="text" th:field="*{nr_konta}"></td>
+			</tr>
+			<tr>
+				<td>Producer id:</td>
+				<td><input type="text" th:field="*{id_producenta}"></td>
+			</tr>
+			<tr>
+				<td>Worker's address id:</td>
+				<td><input type="text" th:field="*{id_adresu}"></td>
+			</tr>
+			<tr>
+				<td>Worker's post id:</td>
+				<td><input type="text" th:field="*{id_stanowiska}"></td>
+			</tr>
+			<tr>
+				<td>Worker's factory id:</td>
+				<td><input type="text" th:field="*{id_fabryki}"></td>
+			</tr>
+
+			<tr>
+				<td colspan="2"><button type="submit">Save</button></td>
+			</tr>
+		</table>
+		
+		</form>
+		
+	</div>
+	<div class="management">
+		<div class="sheader">Go back to previous page</div>
+		<div id="middle">
+			<a href="/" class="button">Back</a>
+		</div>
+	</div>
+</body>
+</html>

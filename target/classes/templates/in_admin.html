@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+<title>Administrator panel</title>
+</head>
+
+<body>
+
+	<div class="table-users">
+		<div class="header">List of Employees</div>
+		<table cellspacing="0">
+			<tr>
+				<th>id</th>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Date of birth</th>
+				<th>Date of hire</th>
+				<th>PESEL</th>
+				<th>Gender</th>
+				<th>Bank acc no.</th>
+				<th>Producer id</th>
+				<th>Address id</th>
+				<th>Position id</th>
+				<th>Factory id</th>
+				<th>Action</th>
+			</tr>
+ 			<tr th:each="employee : ${listOfEmployees}">
+
+				<td th:text="${employee.id_pracownika}">id</td>
+				<td th:text="${employee.imie}">Name</td>
+				<td th:text="${employee.nazwisko}">Surname</td>
+				<td th:text="${#strings.substring(employee.data_urodzenia,0,10)}">Date of birth</td>
+				<td th:text="${#strings.substring(employee.data_zatrudnienia,0,10)}">Date of hire</td>
+				<td th:text="${employee.PESEL}">PESEL</td>
+				<td th:text="${employee.plec}">Gender</td>
+				<td th:text="${employee.nr_konta}">Bank acc no.</td>
+				<td th:text="${employee.id_producenta}">Producer id</td>
+				<td th:text="${employee.id_adresu}">Address id</td>
+				<td th:text="${employee.id_stanowiska}">Position id</td>
+				<td th:text="${employee.id_fabryki}">Factory id</td>
+				<td><a th:href="@{'/edit/' + ${employee.id_pracownika}}"
+					class="edButton">Edit</a> &nbsp; <a
+					th:href="@{'/delete/' + ${employee.id_pracownika}}"
+					class="edButton">Delete</a></td> 
+			</tr>
+		</table>
+	</div>
+
+	<div class="management">
+		<div class="sheader">Management</div>
+		<div id="middle">
+			<a href="/new" class="button">Add employee</a> <a href="/logout"
+				class="button">Logout</a>
+		</div>
+		<div class="sheader">Move to another table</div>
+		<div id="middle">
+			<a href="/addresses" class="button">Addresses</a> 
+			<a href="/positions" class="button">Positions</a> 
+			<a href="/factories" class="button">Factories</a>
+		</div>
+	</div>
+
+</body>
+</html>

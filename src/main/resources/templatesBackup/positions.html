@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- <link href="css/style.css" rel="stylesheet" type ="text/css"> -->
+<style type="text/css">
+body {
+	background-color: #c3dffa;
+	font-family: 'Arial', sans-serif;
+}
+
+.Przycisk {
+	height: 50px;
+	width: 250px;
+}
+
+.edButton {
+	color: #0734F5;
+	text-decoration: underline;
+}
+
+a.button1 {
+	display: inline-block;
+	padding: 0.35em 1.2em;
+	border: 0.1em solid #000000;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.12em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: #000000;
+	text-align: center;
+	transition: all 0.2s;
+	background-color: #e6e7e8;
+}
+
+a.button1:hover {
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+@media all and (max-width:30em) {
+	a.button1 {
+		display: block;
+		margin: 0.4em auto;
+	}
+}
+
+#custom {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#custom td, #custom th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#custom td {
+	background-color: #e6e7e8;
+	opacity: 0.8;
+}
+
+#custom tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#custom tr:hover {
+	background-color: #ddd;
+}
+
+#custom th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4D57FA;
+	color: white;
+}
+</style>
+
+<title>Positions</title>
+</head>
+<body>
+
+	<div align="center">
+		<h1>List of positions</h1>
+
+		<a href="/newPosition" class="button1">Enter a new position in a company.</a> <a
+			href="/logout" class="button1">Logout</a> <br /> <br />
+
+
+		<!-- Table parameters -->
+		<table border="1" cellpadding="10" id="custom">
+
+			<!-- Table header -->
+
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Post</th>
+					<th>Post description</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+
+			<!--private int id_stanowiska;
+			private String nazwa_stanowiska;
+			private String opis_stanowiska;-->
+
+			<!-- Table body -->
+	 	<tbody>
+				<tr th:each="position : ${listOfPositions}">
+
+					<td th:text="${position.id_stanowiska}">id</td>
+					<td th:text="${position.nazwa_stanowiska}">Post</td>
+					<td th:text="${position.opis_stanowiska}">Post description</td>
+					
+				
+
+					<td><a th:href="@{'/editPosition/' + ${position.id_stanowiska}}"
+						class="edButton">Edit</a> &nbsp; <a
+						th:href="@{'/deletePosition/' + ${position.id_stanowiska}}"
+						class="edButton">Delete</a></td>
+
+
+				</tr>
+
+			</tbody> 	
+		</table>
+
+		<br /> <br /> <br />
+		<h3>Move to the main page</h3>
+		<a href="/" class="button1">Employees</a> 
+
+
+
+	</div>
+
+
+</body>
+</html>

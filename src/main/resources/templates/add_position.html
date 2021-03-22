@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3,org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Adding a position</title>
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">Add new position</div>
+
+		<form action="#" th:action="@{/savePosition}" th:object="${position}"
+			method="post">
+
+			<table cellpadding="0">
+
+					<tr>
+						<td>Post:</td>
+						<td><input type="text" th:field="*{nazwa_stanowiska}"></td>
+					</tr>
+					<tr>
+						<td>Post description:</td>
+						<td><input type="text" th:field="*{opis_stanowiska}"></td>
+					</tr>					
+					<!-- Saving button -->
+					<tr>
+						<td colspan="2"><button type="submit">Save</button></td>
+					</tr>
+					
+			</table>
+		</form>
+	</div>
+	
+	<div class="management">
+		<div class="sheader">Go back to previous page</div>
+		<div id="middle">
+			<a href="/positions" class="button">Back</a>
+		</div>
+	</div>
+
+
+</body>
+</html>

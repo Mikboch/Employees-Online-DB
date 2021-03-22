@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+<title>User selection</title>
+</head>
+<body>
+
+<div class="table-users" style="background-color:#c7c1c1; width: 30%;">
+		<form th:action="@{/user}"  method="get">
+		<div class="header">CHOOSE USER</div>
+    		<div class="middle1"><input type="text" name="id_uzytkownika" th:value="${id_uzytkownika}" placeholder="Your ID...">
+    		<input type="submit" value="Submit"></div>
+		</form>
+	<div class="middle1">
+		<a href="/logout" class="button">Logout</a>
+	</div>
+</div>
+
+</body>
+</html>

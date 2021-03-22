@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+<title>Address</title>
+</head>
+<body>
+
+<div class="table-users">
+		<div class="header">List of addresses</div>
+
+		<!-- Table parameters -->
+
+		<table cellspacing="0">
+			<tr>
+					<th>id</th>
+					<th>City</th>
+					<th>Street</th>
+					<th>Builiding no.</th>
+					<th>Flat no.</th>
+					<th>Post id</th>
+					<th>Action </th>
+			</tr>
+			<tr th:each="address : ${listOfAddresses}">
+				<td th:text="${address.id_adresu}">id</td>
+				<td th:text="${address.miasto}">City</td>
+				<td th:text="${address.ulica}">Street</td>
+				<td th:text="${address.numer_budynku}">Builiding no.</td>
+				<td th:text="${address.nr_lokalu}">Flat no.</td>
+				<td th:text="${address.id_poczty}">Post id</td>
+				<td><a th:href="@{'/editAddress/' + ${address.id_adresu}}"
+					class="edButton">Edit</a> &nbsp; <a
+					th:href="@{'/deleteAddress/' + ${address.id_adresu}}"
+					class="edButton">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="management">
+		<div class="sheader">Management</div>
+		<div id="middle">
+			<a href="/newAddress" class="button">Enter a new address.</a> 
+			<a href="/logout" class="button">Logout</a>
+		</div>
+		<div class="sheader">Move to another table</div>
+		<div id="middle">
+			<a href="/" class="button">Employees</a>
+			<a href="/factories" class="button">Factories</a>
+			<a href="/positions" class="button">Positions</a>
+		</div>
+	</div>
+
+</body>
+</html>

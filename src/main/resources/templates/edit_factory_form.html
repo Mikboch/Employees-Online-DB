@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3,org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit factory informations</title>
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">Edit factory information</div>
+
+		<form action="#" th:action="@{/updateFactory}" th:object="${factory}"
+			method="post">
+		<table cellpadding="0">
+			<tr>
+				<td>Factory ID:</td>
+				<td><input type="text" th:field="*{id_fabryki}"
+					readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>Specialization:</td>
+				<td><input type="text" th:field="*{specjalizacja}"></td>
+			</tr>
+			<tr>
+				<td>Surface:</td>
+				<td><input type="text" th:field="*{powierzchnia}"></td>
+			</tr>
+			<tr>
+				<td>Assurance no.:</td>
+				<td><input type="text" th:field="*{nr_ubezpieczenia}"></td>
+			</tr>	
+			<tr>
+				<td>Manufacturer id:</td>
+				<td><input type="text" th:field="*{id_producenta}"></td>
+			</tr>	
+			<tr>
+				<td>Address id:</td>
+				<td><input type="text" th:field="*{id_adresu}"></td>
+			</tr>	
+			<tr>
+				<td colspan="2"><button type="submit">Save</button></td>
+			</tr>
+		</table>
+		
+		</form>
+
+	</div>
+	<div class="management">
+		<div class="sheader">Go back to previous page</div>
+		<div id="middle">
+			<a href="/factories" class="button">Back</a>
+		</div>
+	</div>
+</body>
+</html>

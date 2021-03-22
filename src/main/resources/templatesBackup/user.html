@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/styleDark.css">
+<title>Workers DB</title>
+</head>
+<body>
+
+	<div class="table-users">
+		<div class="header">USER DATA</div></div>
+		
+		<div class="middle1"><a href="/logout" class="button">Logout</a></div>
+		<div class="table-users">
+		<div class="header">All user informations</div>
+
+		<!-- Table parameters -->
+
+		<table cellspacing="0">
+			<tr>
+				<th>id</th>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Date of birth</th>
+				<th>Date of hire</th>
+				<th>PESEL</th>
+				<th>Gender</th>
+				<th>Bank acc no.</th>
+				<th>Producer id</th>
+				<th>Address id</th>
+				<th>Position id</th>
+				<th>Factory id</th>
+				
+			</tr>
+			<tr th:each="employee : ${listOfEmployees}">
+
+				<td th:text="${employee.id_pracownika}">id</td>
+				<td th:text="${employee.imie}">Name</td>
+				<td th:text="${employee.nazwisko}">Surname</td>
+				<td th:text="${employee.data_urodzenia}">Date of birth</td>
+				<td th:text="${employee.data_zatrudnienia}">Date of hire</td>
+				<td th:text="${employee.PESEL}">PESEL</td>
+				<td th:text="${employee.plec}">Gender</td>
+				<td th:text="${employee.nr_konta}">Bank acc no.</td>
+				<td th:text="${employee.id_producenta}">Producer id</td>
+				<td th:text="${employee.id_adresu}">Address id</td>
+				<td th:text="${employee.id_stanowiska}">Position id</td>
+				<td th:text="${employee.id_fabryki}">Factory id</td>
+				
+			</tr>
+		</table>
+	</div>
+	<div class="middle1"><a href="/" class="button">Edit bank account no.</a></div>
+	<div class="table-users">
+		<div class="header">User address</div>
+		<table cellspacing="0">
+			<tr>
+				<th>id</th>
+				<th>City</th>
+				<th>Street</th>
+				<th>Builiding no.</th>
+				<th>Flat no.</th>
+				<th>Post id</th>
+			</tr>
+			<tr th:each="address : ${listOfAddresses}">
+				<td th:text="${address.id_adresu}">id</td>
+				<td th:text="${address.miasto}">City</td>
+				<td th:text="${address.ulica}">Street</td>
+				<td th:text="${address.numer_budynku}">Builiding no.</td>
+				<td th:text="${address.nr_lokalu}">Flat no.</td>
+				<td th:text="${address.id_poczty}">Post id</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="table-users">
+		<div class="header">User's factory</div>
+
+		<table cellspacing="0">
+			<tr>
+				<th>id</th>
+				<th>Specialization</th>
+				<th>Surface</th>
+				<th>Assurance no.</th>
+				<th>Manufacturer id</th>
+				<th>Address id</th>
+			</tr>
+			<tr th:each="factory : ${listOfFactories}">
+				<td th:text="${factory.id_fabryki}">id</td>
+				<td th:text="${factory.specjalizacja}">Specialization</td>
+				<td th:text="${factory.powierzchnia}">Surface</td>
+				<td th:text="${factory.nr_ubezpieczenia}">Assurance no.</td>
+				<td th:text="${factory.id_producenta}">Manufacturer id</td>
+				<td th:text="${factory.id_adresu}">Address id</td>
+			</tr>
+		</table>
+
+	</div>
+
+	<div class="table-users">
+		<div class="header">User's position</div>
+
+		<table cellspacing="0">
+			<tr>
+				<th>id</th>
+				<th>Post</th>
+				<th>Post description</th>
+			</tr>
+			<tr th:each="position : ${listOfPositions}">
+				<td th:text="${position.id_stanowiska}">id</td>
+				<td th:text="${position.nazwa_stanowiska}">Post</td>
+				<td th:text="${position.opis_stanowiska}">Post description</td>
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>

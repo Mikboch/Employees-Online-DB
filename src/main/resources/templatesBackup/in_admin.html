@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- <link href="css/style.css" rel="stylesheet" type ="text/css"> -->
+<style type="text/css">
+body {
+	background-color: #c3dffa;
+	font-family: 'Arial', sans-serif;
+}
+
+.Przycisk {
+	height: 50px;
+	width: 250px;
+}
+
+.edButton {
+	color: #0734F5;
+	text-decoration: underline;
+}
+
+a.button1 {
+	display: inline-block;
+	padding: 0.35em 1.2em;
+	border: 0.1em solid #000000;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.12em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: #000000;
+	text-align: center;
+	transition: all 0.2s;
+	background-color: #e6e7e8;
+}
+
+a.button1:hover {
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+@media all and (max-width:30em) {
+	a.button1 {
+		display: block;
+		margin: 0.4em auto;
+	}
+}
+
+#custom {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#custom td, #custom th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#custom td {
+	background-color: #e6e7e8;
+	opacity: 0.8;
+}
+
+#custom tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#custom tr:hover {
+	background-color: #ddd;
+}
+
+#custom th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4D57FA;
+	color: white;
+}
+</style>
+
+<title>Workers DB</title>
+</head>
+<body>
+
+	<div align="center">
+		<h1>List of employees</h1>
+
+		<a href="/new" class="button1">Enter personal info of a new
+			employee.</a> <a href="/logout" class="button1">Logout</a> <br /> <br />
+
+
+		<!-- Table parameters -->
+		<table border="1" cellpadding="10" id="custom">
+
+			<!-- Table header -->
+
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Date of birth</th>
+					<th>Date of hire</th>
+					<th>PESEL</th>
+					<th>Gender</th>
+					<th>Bank acc no.</th>
+					<th>Producer id</th>
+					<th>Address id</th>
+					<th>Position id</th>
+					<th>Factory id</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+
+			<!-- 
+		private int id_pracownika;
+		private String imie;
+		private String nazwisko;
+		private String data_urodzenia;
+		private String data_zatrudnienia;
+		private int PESEL;
+		private String plec;
+		private String nr_konta;
+		private int id_producenta;
+		private int id_adresu;
+		private int id_stanowiska;
+		private int id_fabryki; -->
+
+			<!-- Table body -->
+			<tbody>
+				<tr th:each="employee : ${listOfEmployees}">
+
+					<td th:text="${employee.id_pracownika}">id</td>
+					<td th:text="${employee.imie}">Name</td>
+					<td th:text="${employee.nazwisko}">Surname</td>					
+					<td th:text="${employee.data_urodzenia}">Date of birth</td>
+					<td th:text="${employee.data_zatrudnienia}">Date of hire</td>
+					<td th:text="${employee.PESEL}">PESEL</td>
+					<td th:text="${employee.plec}">Gender</td>
+					<td th:text="${employee.nr_konta}">Bank acc no.</td>
+					<td th:text="${employee.id_producenta}">Producer id</td>
+					<td th:text="${employee.id_adresu}">Address id</td>
+					<td th:text="${employee.id_stanowiska}">Position id</td>
+					<td th:text="${employee.id_fabryki}">Factory id</td>
+
+					<td><a th:href="@{'/edit/' + ${employee.id_pracownika}}"
+						class="edButton">Edit</a> &nbsp; <a
+						th:href="@{'/delete/' + ${employee.id_pracownika}}"
+						class="edButton">Delete</a></td>
+
+				</tr>
+
+			</tbody>
+		</table>
+
+		<br /> <br /> <br />
+		<h3>Move to another tables</h3>
+		<a href="/addresses" class="button1">Addresses</a> <a
+			href="/positions" class="button1">Position</a> <a href="/factories"
+			class="button1">Factory</a> <br /> <br />
+
+
+
+	</div>
+
+
+</body>
+</html>
